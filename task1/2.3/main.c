@@ -9,10 +9,10 @@ int main() {
         return 1;
     }
 
-    int (*add)(int, int) = dlsym(handle, "add");
-    int (*subtract)(int, int) = dlsym(handle, "subtract");
-    int (*multiply)(int, int) = dlsym(handle, "multiply");
-    int (*divide)(int, int) = dlsym(handle, "divide");
+    double (*add)(double, double) = dlsym(handle, "add");
+    double (*subtract)(double, double) = dlsym(handle, "subtract");
+    double (*multiply)(double, double) = dlsym(handle, "multiply");
+    double (*divide)(double, double) = dlsym(handle, "divide");
 
     if (!add || !subtract || !multiply || !divide) {
         fprintf(stderr, "Ошибка загрузки функций: %s\n", dlerror());
@@ -21,7 +21,7 @@ int main() {
     }
 
     int choice;
-    int num1, num2;
+    double num1, num2;
 
     do {
         printf("Меню калькулятора:\n");
@@ -35,23 +35,23 @@ int main() {
 
         if (choice >= 1 && choice <= 4) {
             printf("Введите первое число: ");
-            scanf("%d", &num1);
+            scanf("%lf", &num1);
             printf("Введите второе число: ");
-            scanf("%d", &num2);
+            scanf("%lf", &num2);
         }
 
         switch (choice) {
             case 1:
-                printf("Результат: %d + %d = %d\n", num1, num2, add(num1, num2));
+                printf("Результат: %lf + %lf = %lf\n", num1, num2, add(num1, num2));
                 break;
             case 2:
-                printf("Результат: %d - %d = %d\n", num1, num2, subtract(num1, num2));
+                printf("Результат: %lf - %lf = %lf\n", num1, num2, subtract(num1, num2));
                 break;
             case 3:
-                printf("Результат: %d * %d = %d\n", num1, num2, multiply(num1, num2));
+                printf("Результат: %lf * %lf = %lf\n", num1, num2, multiply(num1, num2));
                 break;
             case 4:
-                printf("Результат: %d / %d = %d\n", num1, num2, divide(num1, num2));
+                printf("Результат: %lf / %lf = %lf\n", num1, num2, divide(num1, num2));
                 break;
             case 5:
                 printf("Выход из калькулятора.\n");
