@@ -1,28 +1,28 @@
 #include <stdio.h>
 
-int add(int a, int b) {
-    return a + b;
+double add(double a, double b) {
+    return (a + b);
 }
 
-int subtract(int a, int b) {
-    return a - b;
+double subtract(double a, double b) {
+    return (a - b);
 }
 
-int multiply(int a, int b) {
-    return a * b;
+double multiply(double a, double b) {
+    return (a * b);
 }
 
-int divide(int a, int b) {
+double divide(double a, double b) {
     if (b == 0) {
         printf("Ошибка: Нельзя делить на ноль.\n");
         return 0;
     }
-    return a / b;
+    return (a / b);
 }
 
 int main() {
     int choice;
-    int num1, num2;
+    double num1, num2; 
 
     do {
         printf("Меню калькулятора:\n");
@@ -32,27 +32,27 @@ int main() {
         printf("4. Деление\n");
         printf("5. Выход\n");
         printf("Введите ваш выбор (1-5): ");
-        scanf("%d", &choice);
+        scanf("%d", &choice); 
 
         if (choice >= 1 && choice <= 4) {
             printf("Введите первое число: ");
-            scanf("%d", &num1);
+            scanf("%lf", &num1);
             printf("Введите второе число: ");
-            scanf("%d", &num2);
+            scanf("%lf", &num2);
         }
 
         switch (choice) {
             case 1:
-                printf("Результат: %d + %d = %d\n", num1, num2, add(num1, num2));
+                printf("Результат: %lf + %lf = %lf\n", num1, num2, add(num1, num2));
                 break;
             case 2:
-                printf("Результат: %d - %d = %d\n", num1, num2, subtract(num1, num2));
+                printf("Результат: %lf - %lf = %lf\n", num1, num2, subtract(num1, num2));
                 break;
             case 3:
-                printf("Результат: %d * %d = %d\n", num1, num2, multiply(num1, num2));
+                printf("Результат: %lf * %lf = %lf\n", num1, num2, multiply(num1, num2));
                 break;
             case 4:
-                printf("Результат: %d / %d = %d\n", num1, num2, divide(num1, num2));
+                printf("Результат: %lf / %lf = %lf\n", num1, num2, divide(num1, num2));
                 break;
             case 5:
                 printf("Выход из калькулятора.\n");
