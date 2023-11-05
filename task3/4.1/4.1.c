@@ -57,7 +57,7 @@ void addContact() {
     scanf("%49s", newContact.social_links);
 
     contacts[contactCount++] = newContact;
-    printf("Contact added successfully!\n");
+    printf("Контакт добавлен успешно!\n");
 }
 
 void displayContacts() {
